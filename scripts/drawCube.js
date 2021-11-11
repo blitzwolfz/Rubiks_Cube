@@ -1,3 +1,54 @@
+function initColors() {
+    colors = [
+        [255, 255, 255],    // White
+        [255, 255, 0],      // Yellow
+        [255, 165, 0],      // Orange
+        [255, 0, 0],        // Red
+        [0, 255, 0],        // Green
+        [0, 0, 255],        // Blue
+    ];
+    
+    // An alternate color pallete
+    secondaryColors = [
+        [255, 255, 255],    // White
+        [255, 165, 0],      // Orange
+        [0, 180, 255],      // Blue
+        [230, 255, 75],     // Yellow
+        [255, 50, 100],     // Red
+        [0, 255, 100],      // Green
+    ];
+    
+    colors = secondaryColors;   // Comment this out to use original color pallette
+    
+    // Just a quick check if the colours are valid
+    for (c of colors) {
+        for (let i = 0; i < 3; i++) {
+            if (c[i] > 255) c[i] = 255;
+            else if (c[i] < 0) c[i] = 0;
+        }
+    }
+}
+
+function initPieces() {
+    for (let c = 0; c < 6; c++) {
+        for (let i = 0; i < cubeSize; i++) {
+            for (let j = 0; j < cubeSize; j++) {
+                pieces.push(new Piece(i, j, c));
+            }
+        }
+    }
+}
+
+// Pieces to test rendering
+function testPieces() {
+    for (let i = 0; i < cubeSize; i++) {
+        for (let j = 0; j < cubeSize; j++) {
+            pieces.push(new Piece(i, j, floor(random(6))));
+            
+        }
+    }
+}
+
 function drawCube() {
     // Drawing the little cubies
     // (0,0) is the direct center, so I need to offset this
