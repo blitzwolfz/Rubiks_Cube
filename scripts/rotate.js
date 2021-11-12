@@ -63,5 +63,20 @@ function turnRight(row) {
 }
 
 function turnFront(row) {
+    for (p of pieces) {
+        // Directly affected sides are: 
+        // Blue (2) -> Orange (1)       Orange(1) -> Green(5)       Green(5) -> Red(4)      Red(4) -> Blue(2)
 
+        if (p.x === row) {
+            if (p.side === 2) {
+                p.side = 1;
+            } else if (p.side === 1) {
+                p.side = 5;
+            } else if (p.side === 5) {
+                p.side = 4;
+            } else if (p.side === 4) {
+                p.side = 2;
+            }
+        }
+    }
 }

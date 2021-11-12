@@ -9,11 +9,11 @@ function init() {
     angleY = 0;
     pieces = [];
     
-    cubeSize = 3;    // Change this to change the size of the cube
+    cubeSize = 3;    // Change this to change the dimensions of the cube
     
     sizeMult = width / 3;    // Relative size of the cube on screen
-    size = sizeMult / cubeSize;
-    cubeLength = size * cubeSize;
+    size = sizeMult / cubeSize;     // Size of each cubie
+    cubeLength = size * cubeSize;   // Full size of the cube on screen
 
     camSpeed = 10;
     frameRate(60);
@@ -21,10 +21,13 @@ function init() {
     initColors();
     initPieces();
     background(0);
-    // testPieces();
 }
 
+let a = 0;
 function draw() {
+    background(0);
+    rotateX(-PI / 8);
+    rotateY(PI / 4);
     translate(-cubeLength / 2, -cubeLength / 2, cubeLength / 2);
     drawCube();
 }
@@ -33,15 +36,4 @@ function keyPressed() {
     if (key === '1') turnRight(0);
     if (key === '2') turnUp(0);
     if (key === '3') turnFront(0);
-}
-
-function mousePressed() {
-    if (mouseButton === CENTER) {
-        previousX = mouseX;
-        previousY = mouseY;
-    }
-}
-
-function mouseReleased() {
-    mouseButton = 0;
 }
