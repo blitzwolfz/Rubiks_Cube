@@ -1,13 +1,7 @@
 class Piece {
-    constructor(x, y, col) {
-        // Needs a position in the cube and a color
+    constructor(x, side, colorIndex) {
         this.x = x;
-        this.y = y;
-        this.col = col;        
-        this.side = col;
-    }
-
-    getPosition() {
-        console.log(this.x);
+        this.side = side;
+        this.c = colorIndex;
     }
 }
